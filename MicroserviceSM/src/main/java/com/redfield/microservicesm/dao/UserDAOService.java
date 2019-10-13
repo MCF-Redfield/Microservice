@@ -1,4 +1,4 @@
-package com.redfield.dao;
+package com.redfield.microservicesm.dao;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.redfield.model.User;
+import com.redfield.microservicesm.model.User;
 
 @Component
 public class UserDAOService
@@ -46,5 +46,13 @@ public class UserDAOService
 		return null; 
 	}
 	
-	
+	public User deleteUser(int id)
+	{
+		for(int i=0; i<users.size();i++)
+		{
+			if(users.get(i).getId()==id)
+				return users.remove(i);
+		}
+		return null; 
+	}
 }

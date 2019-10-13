@@ -1,13 +1,31 @@
-package com.redfield.model;
+package com.redfield.microservicesm.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+@Entity
 public class User
 {
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
+	@Size(min = 2)
 	private String nome;
+	@Past
 	private Date dataNasc;
 	
+	
+	
+	public User() {
+		super();
+	}
+
 	public User(Integer id, String nome, Date dataNasc) {
 		super();
 		this.id = id;
